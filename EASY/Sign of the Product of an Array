@@ -62,6 +62,9 @@ class Solution {
 
 Correct code:
 
+Time complexity: O(n)
+Space complexity: O(1)
+
 check the no of negatives in the array
 
 class Solution {
