@@ -67,3 +67,26 @@ class Solution {
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+Optimized Approach:
+
+Time complexity: O(n)
+Space complexity: O(1)
+
+
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode temp = head;
+        ListNode nextnode = null;
+        while(temp!=null){
+            nextnode=temp.next;
+            temp.next=prev;
+            prev=temp;
+            temp=nextnode;
+        }
+        return prev;
+    }
+}
+
+
+
