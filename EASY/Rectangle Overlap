@@ -32,3 +32,47 @@ rec1 and rec2 represent a valid rectangle with a non-zero area.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+36/40 test cases passed for below:
+
+class Solution {
+    public boolean isRectangleOverlap(int[] rec1, int[] rec2) {
+       int xrec1[]=new int[2];
+       int yrec1[]=new int[2];
+       int a=0, b=0;
+       for(int i=0;i<rec1.length;i++){
+        if(i%2==0){
+            xrec1[a]=rec1[i];
+            a++;
+        }
+        else{
+            yrec1[b]=rec1[i];
+            b++;
+        }
+       }
+       int xrec2[]=new int[2];
+       int yrec2[]=new int[2];
+       int p=0, q=0;
+       for(int i=0;i<rec2.length;i++){
+        if(i%2==0){
+            xrec2[p]=rec2[i];
+            p++;
+        }
+        else{
+            yrec2[q]=rec2[i];
+            q++;
+        }
+       }
+       int count=0;
+       if ((xrec1[0]<=xrec2[0]) && (xrec2[0]<xrec1[1])){
+        count++;
+       }
+       if ((yrec1[0]<=yrec2[0]) && (yrec2[0]<yrec1[1]) || (yrec2[0]<=yrec1[0]) && (yrec1[0]<yrec2[1]))  {
+        count++;
+       }
+       if(count==2){
+        return true;
+       }
+    return false;
+    }  
+ }
+
