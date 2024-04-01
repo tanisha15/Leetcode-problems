@@ -1,0 +1,71 @@
+https://leetcode.com/problems/excel-sheet-column-number/description/
+
+Given a string columnTitle that represents the column title as appears in an Excel sheet, return its corresponding column number.
+
+For example:
+
+A -> 1
+B -> 2
+C -> 3
+...
+Z -> 26
+AA -> 27
+AB -> 28 
+...
+ 
+
+Example 1:
+
+Input: columnTitle = "A"
+Output: 1
+Example 2:
+
+Input: columnTitle = "AB"
+Output: 28
+Example 3:
+
+Input: columnTitle = "ZY"
+Output: 701
+ 
+
+Constraints:
+
+1 <= columnTitle.length <= 7
+columnTitle consists only of uppercase English letters.
+columnTitle is in the range ["A", "FXSHRXW"].
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Description:
+
+When you want to convert a binary number to decimal
+
+For eg ---> 101 to decimal
+
+You would be running the number from right to left like 1x (binary based)^0 in this way
+
+Number of letters in binary number = 2 as only 1 and 0
+
+So answer would be 1*2^0 + 0*2^1 + 1* 2^2
+
+Now similarly, we have string for eg- AAB so we would be considering number of letters from A-Z = 26 so base is 26
+
+So answer (int)B - 64 * 26^0 + (int)A - 64 * 26^1 and so on....
+
+Time complexity: O(length of string)
+Space complexity: O(1)
+
+class Solution {
+    public int titleToNumber(String columnTitle) {
+        int ans=0;
+        int l=columnTitle.length();
+        for(int i=l-1;i>=0;i--){
+            char ch= columnTitle.charAt(i);
+            int val = (int)ch - 64;
+            ans=ans+ (val*(int)Math.pow(26,l-1-i));
+        }  
+        return ans;
+    }
+}
+
